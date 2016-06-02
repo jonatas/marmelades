@@ -19,6 +19,8 @@ defmodule Marmelades.Router do
     get "/", PageController, :index
 
     resources "/challenges", ChallengeController
+
+    get "/challenges/:id/run", ChallengeController, :run
   end
 
 
@@ -27,3 +29,4 @@ defmodule Marmelades.Router do
   #   pipe_through :api
   # end
 end
+

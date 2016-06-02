@@ -1,6 +1,7 @@
 defmodule Marmelades.ChallengeController do
   use Marmelades.Web, :controller
 
+
   alias Marmelades.Challenge
 
   plug :scrub_params, "challenge" when action in [:create, :update]
@@ -29,6 +30,11 @@ defmodule Marmelades.ChallengeController do
   end
 
   def show(conn, %{"id" => id}) do
+    challenge = Repo.get!(Challenge, id)
+    render(conn, "show.html", challenge: challenge)
+  end
+
+  def run(conn, %{"id" => id}) do
     challenge = Repo.get!(Challenge, id)
     render(conn, "show.html", challenge: challenge)
   end

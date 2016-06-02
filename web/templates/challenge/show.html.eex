@@ -7,7 +7,14 @@
     <%= @challenge.content %>
   </li>
 
+  <li>
+    <strong>Output:</strong>
+    <%= Marmelades.Challenge.run @challenge  %>
+  </li>
+
+
 </ul>
 
 <%= link "Edit", to: challenge_path(@conn, :edit, @challenge) %>
 <%= link "Back", to: challenge_path(@conn, :index) %>
+<%= link "Run",  to: challenge_path(@conn, :run, @challenge) %>
